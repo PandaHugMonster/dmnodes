@@ -1,7 +1,7 @@
 #!/bin/php
 <?php
-
 define(HERE, __DIR__);
+
 include 'includes/kmp.include';
 
 $store = new StoreText('TxtTemplate');
