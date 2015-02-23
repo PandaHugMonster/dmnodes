@@ -1,41 +1,42 @@
 # dmnodes
-PHP Data Mining libraries
+PHP Data Mining библиотеки
 
-The initial commit has been made. No optimization or improvments haven't been made yet.
-Some improvments will be made soon.
+Был сделан базовый коммит. Без оптимизации или улучшений.
+Некоторые улучшения будут добавлено скоро.
 
-Only K-Means algorithm yet implemented on top of DMNodes (KMP)
+Только алгоритм K-Means пока реализован в DMNodes (KMP)
 
-Directories structure:
-	* DBstore - Libraries related to DataTables and DataBases working. 
-	  In common sense it is Source-working Libs
-	* includes - just files for a simple inclusion of exact algorithm
-	* samples - dir of simple samples, mostly in text/plain format
-	* Utilities - Some extra libraries
+Структура директорий:
+	* DBstore - Библиотеки работы с источниками. 
+	* includes - Простые файлы подключения необходимых файлов для конкретного алгоритма
+	* samples - Примеры в формате text/plain
+	* Utilities - Некоторые дополнительные бибилотеки
 	
-The current version have only TxtTemplate database libs. Other Sources will be added later.
+Данная версия библиотек содержит только поддержку источника TxtTemplate.
+Поддержка других источников будет добавлена позже.
 
-Simplest way to check algorithm:
+Код используемый в run.php:
 
-	// Defines basic dir (current dir)
+	// Задаётся текущая папка в константу HERE
 	define(HERE, __DIR__);
 
-	// Includes all needed for K-Means algorithm
+	// Подключить всё необходимое для алгоритма K-Means
 	include 'includes/kmp.include';
 	
-	// Creating an Object-Source (TxtTemplate)
+	// Создание Объекта-Источника (TxtTemplate)
 	$store = new StoreText('TxtTemplate');
-	// Retrieving data from source (define the file or database from where to obtain data)
+	// Получение данных из источника (файл, база данных, поток данных)
 	$store->retrieveData('samples/weightheight.txt');
-	// Creating Object-Algorithm and provide an array of data from Object-Source (Will be deprecated soon)
+	// Создание Объекта-Алгоритма и предоставить данные из 
+	// Объекта-Источника (будет запрещено в следующих версиях)
 	$tree = new KMP($store->toArray());
-	// Analyse data by algorithm and print the resulting array
+	// Анализировать данные и получив результирубщий массив распечатать его
 	print_r($tree->buildMap());
 
-Please keep in mind that this version is basicly academic.
-From version 0.1.0 will be more effective algorithms and libs.
+Имейте ввиду что данная версия имеет чисто академические базовые функции.
+С версии 0.1.0 библиотеки и алгоритм станут более эффективными и появится возможность работы с BigData.
 
-Data retrieved from source fully loading into a memory, till the version 0.1.0. 
-So unable to analyse BigData.
+Текущая версия алгоритма использует память, поэтому в данной 
+версии невозможно использовать данные BigData (Превышающие объём оперативной памяти)
 
 All good improvements from 0.1.0
