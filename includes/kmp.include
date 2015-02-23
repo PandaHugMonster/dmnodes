@@ -1,0 +1,7 @@
+<?php
+include_once HERE.'/KMP/KMP.php';
+include_once HERE.'/Utilities/StoreTextTemplate.php';
+include_once HERE.'/DBStore/AbstractDB.php';
+include_once HERE.'/Utilities/Templates/TxtTemplate.php';
+include_once HERE.'/DBStore/DataBase.php';
+include_once HERE.'/DBStore/StoreText.php';
